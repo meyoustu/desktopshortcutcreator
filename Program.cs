@@ -23,27 +23,27 @@ namespace DesktopShortcutCreator
             Instance.Create();
         }
 
-        private static volatile DesktopShortcutCreator desktopShortcutCreator = null;
+        private static volatile Program program = null;
         private static readonly object syncObj = new object();
 
-        public static DesktopShortcutCreator Instance
+        public static Program Instance
         {
             get
             {
-                DesktopShortcutCreator tmp = desktopShortcutCreator;
+                Program tmp = program;
                 if (null == tmp)
                 {
                     lock (syncObj)
                     {
-                        tmp = desktopShortcutCreator;
+                        tmp = program;
                         if (null == tmp)
                         {
-                            tmp = new DesktopShortcutCreator();
-                            desktopShortcutCreator = tmp;
+                            tmp = new Program();
+                            program = tmp;
                         }
                     }
                 }
-                return desktopShortcutCreator;
+                return program;
             }
         }
 

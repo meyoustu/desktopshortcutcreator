@@ -181,3 +181,6 @@ tags
 
 # .NET
 obj
+
+# macOS
+_MACOSX
